@@ -9,11 +9,7 @@ import { Job } from './job/entities/job.entity'; // We'll create this later
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'postgres', // or your PostgreSQL host
-      port: 5432,
-      username: 'admin', // your PostgreSQL username
-      password: 'admin', // your PostgreSQL password
-      database: 'job_portal', // the database you created
+      url:process.env.DATABASE_URL,
       entities: [Job], // Register your entities here
       synchronize: true, // Auto-create tables (use with caution in production)
     }),
